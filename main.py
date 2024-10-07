@@ -10,7 +10,7 @@ def main():
             print("\nHistorial de operaciones:")
             for operacion in historial:
                 print(operacion)
-            print()  # Línea en blanco para mejor formato  
+            print() 
             break
         else:
             choice = input('Ingrese la operación (+, -, *, /, h(historial)) o "0" para salir:  ')
@@ -25,18 +25,18 @@ def main():
             elif choice == '-':
                 resultado = num1 - num2
                 operacion = f"{num1} - {num2} = {resultado}"
-                historial.append(operacion)  # Guardar en historial
+                historial.append(operacion) 
                 print("La resta es:", operacion)
             elif choice == '*':
                 resultado = num1 * num2
                 operacion = f"{num1} * {num2} = {resultado}"
-                historial.append(operacion)  # Guardar en historial
+                historial.append(operacion) 
                 print("La multiplicación es:", operacion)
             elif choice == '/':
-                if num2 != 0:  # Asegúrate de no dividir entre cero
+                if num2 != 0:  
                     resultado = num1 / num2
                     operacion = f"{num1} / {num2} = {resultado}"
-                    historial.append(operacion)  # Guardar en historial
+                    historial.append(operacion) 
                     print("La división es:", operacion)
                 else:
                     print("Error: No se puede dividir entre cero.")      
