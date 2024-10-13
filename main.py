@@ -1,16 +1,18 @@
-import display
-from operaciones import suma, resta, multiplicacion, division
-from historial import mostrar_historial
+import display.menu as menu
+from operaciones.basicas import suma, resta, multiplicacion, division
+from archivos.historial import guardar_operacion, mostrar_historial
+
 
 def main():
-    historial = []
-    display.clear()
+    #historial = []
+    menu.clear()
     choice = '1'    
-    while True: 
+
+    while True:
         choice = input('Ingrese la operación (+, -, *, /, h(historial)) o "0" para salir:  ')
 
         if choice == "h":
-            mostrar_historial(historial)
+            mostrar_historial()
             continue 
 
         if choice == "0":
@@ -23,32 +25,40 @@ def main():
         if choice == '+':
             resultado = suma(num1, num2)
             operacion = f"{num1} + {num2} = {resultado}"
-            historial.append(operacion) 
-            print("La suma es:", operacion)
+            guardar_operacion(operacion)
+            #historial.append(operacion) 
+            print("La suma es:", operacion)         
+        
         elif choice == '-':
             resultado = resta(num1, num2)
             operacion = f"{num1} - {num2} = {resultado}"
-            historial.append(operacion) 
+            guardar_operacion(operacion)
+            #historial.append(operacion) 
             print("La resta es:", operacion)
+        
         elif choice == '*':
             resultado = multiplicacion(num1, num2)
             operacion = f"{num1} * {num2} = {resultado}"
-            historial.append(operacion) 
+            guardar_operacion(operacion)
+            #historial.append(operacion) 
             print("La multiplicación es:", operacion)
+        
         elif choice == '/':
             if num2 != 0:  
                 resultado = division(num1, num2)
                 operacion = f"{num1} / {num2} = {resultado}"
-                historial.append(operacion) 
+                #historial.append(operacion) 
                 print("La división es:", operacion)
             else:
-                print("Error: No se puede dividir entre cero.")      
+                print("Error: No se puede dividir entre cero.") 
+                
         elif choice == "0":            
             print('Salir')
-            break        
+            break    
+        
         else:
             print('Opción inválida, vuelva a intentarlo')  
 
-             
+
 if __name__ == "__main__":
     main()
